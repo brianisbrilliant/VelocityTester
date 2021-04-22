@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8441204259299698978}
   - component: {fileID: 4667235486545011226}
   m_Layer: 0
-  m_Name: CandyBullet
+  m_Name: IceBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3a81a85ac1970e743b2045ea2e9ee7e4, type: 2}
+  - {fileID: 2100000, guid: 6276448c58cb06247819ac2ee9efebdd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -167,7 +167,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
-      key1: {r: 0.854902, g: 0.41960788, b: 0.64705884, a: 1}
+      key1: {r: 0.6745098, g: 0.86666673, b: 0.9921569, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -229,7 +229,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.854902, g: 0.41960788, b: 0.64705884, a: 1}
+  m_Color: {r: 0.6745098, g: 0.86666673, b: 0.9921569, a: 1}
   m_Intensity: 10
   m_Range: 200
   m_SpotAngle: 30

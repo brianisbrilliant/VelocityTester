@@ -54,7 +54,7 @@ public class GunSpawner : MonoBehaviour
         
         int timer = newGunDelay;
         while(timer-- > 0) {
-            gunSpawnSign.text = timer.ToString();
+            gunSpawnSign.text = (1 + timer).ToString();
             yield return new WaitForSeconds(1);
             
         }

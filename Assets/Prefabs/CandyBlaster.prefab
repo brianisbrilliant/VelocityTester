@@ -194,3 +194,6 @@ MonoBehaviour:
     type: 3}
   bulletSpawn: []
   bulletSpeed: 50
+  interval: 0.1
+  ammoRange: {x: 10, y: 20}
+  final: 1

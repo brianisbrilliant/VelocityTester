@@ -132,6 +132,9 @@ MonoBehaviour:
     type: 3}
   bulletSpawn: []
   bulletSpeed: 50
+  interval: 0.2
+  ammoRange: {x: 15, y: 20}
+  final: 1
 --- !u!1 &5421575718166024979
 GameObject:
   m_ObjectHideFlags: 0

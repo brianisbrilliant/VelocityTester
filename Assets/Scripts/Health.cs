@@ -3,10 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
     public int health = 10;
+
+    [SerializeField]
+    float deathDuration = 4;
 
     enum Element {Flame, Candy, Ice, Slime, Human};        // this needs to be the same as in the Bullet class.
 
@@ -15,6 +19,8 @@ public class Health : MonoBehaviour
 
     [SerializeField]
     bool isPlayer = false;
+    
+    bool dying = false;
 
     // This is designed to be called by a bullet and given a negative number.
     public void ChangeHealth(int byAmount = -1, int givenDamageType = 1) {
@@ -35,16 +41,12 @@ public class Health : MonoBehaviour
         
 
 
-        if(health <= 0) {
+        if(health <= 0 && !dying) {
+            dying = true;
             if(isPlayer) {
-                Application.LoadLevel(0);
-                
+                SceneManager.LoadScene(0);
             }
             else {
-                Destroy(this);
-                // if(GetComponent<NavMeshAgent>() != null) {
-                //     Destroy(GetComponent<NavMeshAgent>());
-                // }
                 try {
                     Destroy(GetComponent<MoveTo>());
                     Destroy(GetComponent<NavMeshAgent>());
@@ -55,8 +57,18 @@ public class Health : MonoBehaviour
 
                 Rigidbody rb = this.gameObject.AddComponent<Rigidbody>();
                 AISpawner.totalAI -= 1;
-                Destroy(this.gameObject, 4);
+                Destroy(this.gameObject, deathDuration);
+                StartCoroutine(DeathAnimation());
+                
             }
+        }
+    }
+
+    IEnumerator DeathAnimation() {
+        while(true) {
+            this.transform.localScale -= Vector3.one / (deathDuration * 10);
+            Debug.Log("Enemy localScale = " + this.transform.localScale);
+            yield return new WaitForSeconds(0.1f);
         }
     }
 }

@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/navmesh.unity
-    guid: e83f46076b2939c4198e377bc7063cba
+    path: Assets/Scenes/FinalScene.unity
+    guid: 788a044494e8a4241a6f1fc43ec2bfe9
   m_configObjects: {}

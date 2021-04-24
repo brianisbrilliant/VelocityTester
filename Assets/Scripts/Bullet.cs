@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     int damage = 5;
 
-    enum Element {Flame, Candy, Ice, Slime};        // this needs to be the same as in the Health class.
+    enum Element {Flame, Candy, Ice, Slime, Human};        // this needs to be the same as in the Health class.
 
     [SerializeField]
     Element damageType = Element.Ice;

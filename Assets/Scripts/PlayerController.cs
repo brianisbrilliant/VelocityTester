@@ -9,6 +9,12 @@ public class PlayerController : MonoBehaviour
 
     public Transform hand;
 
+    Health health;
+
+    void Start() {
+        health = GetComponent<Health>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -30,6 +36,8 @@ public class PlayerController : MonoBehaviour
                 heldGun.transform.rotation = hand.rotation;
                 heldGun.GetComponent<Rigidbody>().isKinematic = true;
             }
+        } else if(other.CompareTag("Enemy")) {
+            health.ChangeHealth();
         }
     }
 }

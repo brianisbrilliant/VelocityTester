@@ -30,7 +30,7 @@ public class Health : MonoBehaviour
             health += byAmount;
         // if it is the SAME type, give health instead of taking it!
         } else if((int)damageType == givenDamageType) {
-            health += byAmount;
+            health -= byAmount;
         // if an enemy is damaging a human. (the player)
         } else if (damageType == Element.Human) {
             health += byAmount;
@@ -45,6 +45,8 @@ public class Health : MonoBehaviour
             dying = true;
             if(isPlayer) {
                 SceneManager.LoadScene(0);
+                // static variables need to be reset!
+                AISpawner.totalAI = 0;
             }
             else {
                 try {

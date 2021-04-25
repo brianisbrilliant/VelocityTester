@@ -7,10 +7,10 @@ public class Patrol : MonoBehaviour {
 
     public Transform[] points;
     public Transform goal;          // this will be the player
+    public Transform eye;
     private int destPoint = 0;
     private NavMeshAgent agent;
 
-    public LookForPlayer eye;
 
     void Start () {
         agent = GetComponent<NavMeshAgent>();
@@ -51,7 +51,7 @@ public class Patrol : MonoBehaviour {
         // if the player is close.
         // point a raycast at the player to see if the player is visible.
         // is the AI facing the player?
-        if(eye.canSeePlayer) {
+        if(GenericLook.LookFor(goal, eye, 45)) {
             // yes I can see the player
             agent.destination = goal.position;
         }

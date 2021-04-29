@@ -71,9 +71,9 @@ GameObject:
   - component: {fileID: 6376321854487065867}
   - component: {fileID: 8057754904205064878}
   - component: {fileID: 5203366404666756708}
-  - component: {fileID: 8126456121197513766}
   - component: {fileID: 4306060643515564284}
   - component: {fileID: -4391548632654062033}
+  - component: {fileID: 2000908457362601247}
   m_Layer: 0
   m_Name: Slime Blaster
   m_TagString: Gun
@@ -88,9 +88,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5996242037575430065}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.9938673, y: 1.319, z: 2.914102}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 5000008561227422394}
   - {fileID: 757168268425087256}
@@ -148,22 +148,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &8126456121197513766
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5996242037575430065}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!64 &4306060643515564284
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -192,8 +176,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8441204259299698978, guid: 42004d7d5a01b394e861cc3149a610cd,
     type: 3}
-  bulletSpawn: []
+  bulletSpawn:
+  - {fileID: 5000008561227422394}
+  - {fileID: 757168268425087256}
   bulletSpeed: 50
   interval: 0.3
-  ammoRange: {x: 20, y: 21}
+  ammoRange: {x: 10, y: 21}
   final: 1
+--- !u!54 &2000908457362601247
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5996242037575430065}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

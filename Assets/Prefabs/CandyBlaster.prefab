@@ -192,8 +192,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8441204259299698978, guid: eaee75a64a2141a41aa7343d12e75c50,
     type: 3}
-  bulletSpawn: []
+  bulletSpawn:
+  - {fileID: 7944708060372386645}
+  - {fileID: 5026200209836696307}
   bulletSpeed: 50
-  interval: 0.1
+  interval: 0.15
   ammoRange: {x: 10, y: 20}
   final: 1

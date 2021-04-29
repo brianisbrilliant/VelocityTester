@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 3534939019660211737}
   - component: {fileID: 3534939019660211738}
   - component: {fileID: 3534939019660211739}
-  - component: {fileID: 3534939019660211716}
   - component: {fileID: 3534939019660211717}
+  - component: {fileID: 747857946642436818}
   m_Layer: 0
   m_Name: AI Pep. Butler
   m_TagString: Enemy
@@ -119,19 +119,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &3534939019660211716
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3534939019660211718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b5d91a9c18c7204d9095fc1fac10e45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goal: {fileID: 0}
 --- !u!114 &3534939019660211717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,8 +132,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+  deathDuration: 4
   damageType: 1
   isPlayer: 0
+--- !u!114 &747857946642436818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3534939019660211718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1120db6745c69417bb58be876ba903f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goal: {fileID: 0}
+  shootingRange: 20
+  originalSpeed: 0
 --- !u!1001 &4101208813252159603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -154,6 +157,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3534939019660211743}
     m_Modifications:
+    - target: {fileID: 859936550117463955, guid: d2c41f616e380b8488cc1f3b00965271,
+        type: 3}
+      propertyPath: interval
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5914020035293492780, guid: d2c41f616e380b8488cc1f3b00965271,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -214,10 +222,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: CandyBlaster
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8020206592856412291, guid: d2c41f616e380b8488cc1f3b00965271, type: 3}
-    - {fileID: 7277523094054861775, guid: d2c41f616e380b8488cc1f3b00965271, type: 3}
-    - {fileID: 859936550117463955, guid: d2c41f616e380b8488cc1f3b00965271, type: 3}
+    - target: {fileID: 8020206592856412291, guid: d2c41f616e380b8488cc1f3b00965271,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2c41f616e380b8488cc1f3b00965271, type: 3}
 --- !u!4 &7708115601476984415 stripped
 Transform:

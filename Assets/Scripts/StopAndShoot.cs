@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
@@ -11,6 +9,9 @@ public class StopAndShoot : MonoBehaviour
     float shootingRange = 20, originalSpeed;
 
     NavMeshAgent agent;
+    Gun gun;
+    Transform eye;
+
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,11 @@ public class StopAndShoot : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         originalSpeed = agent.speed;
         agent.destination = goal.position;
+        gun = transform.GetChild(0).GetComponent<Gun>();
+
+        // pretend the "eye" is the gun's spawner
+        eye = gun.transform.GetChild(0);
+        
     }
 
     // Update is called once per frame
@@ -26,8 +32,6 @@ public class StopAndShoot : MonoBehaviour
         float distance = Vector3.Distance(transform.position, goal.position);
         Debug.Log("distance: " + distance);
         // if agent is in range and visible
-        // pretend the "eye" is the gun's spawner
-        Transform eye = transform.GetChild(0).GetChild(0);
         
         // stop moving, aim at player, shoot.
         if(distance < shootingRange && GenericLook.LookFor(goal, eye)) {
@@ -42,7 +46,9 @@ public class StopAndShoot : MonoBehaviour
             var _lookRotation = Quaternion.LookRotation(_direction);
 
             transform.rotation = Quaternion.RotateTowards(transform.rotation, _lookRotation, 360);
+            
             // don't start moving again until you have shot twice
+            gun.Fire();
 
         }
         else {

@@ -53,7 +53,7 @@ public class Health : MonoBehaviour
                     Destroy(GetComponent<MoveTo>());
                     Destroy(GetComponent<NavMeshAgent>());
                 }
-                catch (NullReferenceException ex) {
+                catch { // catch(NullReference ex)
                     // do nothing.
                 }
 

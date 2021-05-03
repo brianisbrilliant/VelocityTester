@@ -27,8 +27,18 @@ public class SceneChanger : MonoBehaviour
     }
 
     void Start() {
-        if(SceneManager.buildIndex != 0) {
+        if(SceneManager.GetActiveScene().buildIndex != 0) {
             // find the canvas
+            GameObject canvas;
+            try {
+                canvas = GameObject.Find("Canvas");
+            }
+            catch {
+                canvas = new GameObject();
+                canvas.name = "Canvas";
+            }
+
+            
         }
     }
 }

@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
                 h = other.gameObject.GetComponent<Health>();
                 h.ChangeHealth(-damage, (int)damageType);
             }
-            catch(NullReferenceException ex) {          // can I leave out the condition?
+            catch {
                 // do nothing
             }
 

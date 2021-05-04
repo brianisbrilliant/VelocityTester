@@ -65,7 +65,7 @@ public class Gun : MonoBehaviour
                 StartCoroutine(WaitToFire());
             } else {
                 Debug.Log("Out of Ammo");
-                Destroy(this);
+                // Destroy(this);
                 // get the great grandparent.
                 // commented out because it was throwing an error for the AI, which have different behaviours.
                 // this.transform.parent.parent.parent.GetComponent<PlayerController>().heldGun = null;

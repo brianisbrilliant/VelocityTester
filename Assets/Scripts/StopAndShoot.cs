@@ -38,14 +38,14 @@ public class StopAndShoot : MonoBehaviour
             // agent.destination = transform.position;     // is this right or should I remove the path? Reset the path?
             agent.speed = 0;
             // how do I get the AI to still look towards the player?
+            // don't let the navmeshagent affect the rotation.
             agent.updateRotation = false;
 
-            var targetPosition = goal.position;
-            var targetPoint = new Vector3(targetPosition.x, transform.position.y, targetPosition.z);
-            var _direction = (targetPoint - transform.position).normalized;
-            var _lookRotation = Quaternion.LookRotation(_direction);
 
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, _lookRotation, 360);
+            Vector3 direction = (goal.position - transform.position).normalized;
+            Quaternion lookRotation = Quaternion.LookRotation(direction);
+
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, 360);
             
             // don't start moving again until you have shot twice
             gun.Fire();

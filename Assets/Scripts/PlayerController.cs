@@ -30,11 +30,16 @@ public class PlayerController : MonoBehaviour
     void OnTriggerEnter(Collider other) {
         if(other.CompareTag("Gun")) {
             if(heldGun == null) {
-                heldGun = other.GetComponent<Gun>();
-                heldGun.transform.SetParent(hand);
-                heldGun.transform.position = hand.position;
-                heldGun.transform.rotation = hand.rotation;
-                heldGun.GetComponent<Rigidbody>().isKinematic = true;
+                try {
+                    heldGun = other.GetComponent<Gun>();
+                    heldGun.transform.SetParent(hand);
+                    heldGun.transform.position = hand.position;
+                    heldGun.transform.rotation = hand.rotation;
+                    heldGun.GetComponent<Rigidbody>().isKinematic = true;
+                }
+                catch {
+                    // do nothing.
+                }
             }
         } else if(other.CompareTag("Enemy")) {
             health.ChangeHealth();

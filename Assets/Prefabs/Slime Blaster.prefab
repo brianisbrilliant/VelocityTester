@@ -73,7 +73,6 @@ GameObject:
   - component: {fileID: 5203366404666756708}
   - component: {fileID: 4306060643515564284}
   - component: {fileID: -4391548632654062033}
-  - component: {fileID: 2000908457362601247}
   m_Layer: 0
   m_Name: Slime Blaster
   m_TagString: Gun
@@ -183,19 +182,3 @@ MonoBehaviour:
   interval: 0.3
   ammoRange: {x: 10, y: 21}
   final: 1
---- !u!54 &2000908457362601247
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5996242037575430065}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0

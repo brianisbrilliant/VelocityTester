@@ -67,9 +67,10 @@ public class Gun : MonoBehaviour
                 Debug.Log("Out of Ammo");
                 Destroy(this);
                 // get the great grandparent.
-                this.transform.parent.parent.parent.GetComponent<PlayerController>().heldGun = null;
-                this.transform.SetParent(null);
-                this.GetComponent<Rigidbody>().isKinematic = false;
+                // commented out because it was throwing an error for the AI, which have different behaviours.
+                // this.transform.parent.parent.parent.GetComponent<PlayerController>().heldGun = null;
+                // this.transform.SetParent(null);
+                // this.GetComponent<Rigidbody>().isKinematic = false;
             }
         }
         

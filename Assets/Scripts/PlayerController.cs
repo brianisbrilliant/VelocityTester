@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
 
     Health health;
 
+    bool canPickUp = false;
+    Gun lastTouchedGun;
+
     void Start() {
         health = GetComponent<Health>();
     }
@@ -22,6 +25,14 @@ public class PlayerController : MonoBehaviour
             heldGun.Fire();
         }
 
+        if(Input.GetKeyDown(KeyCode.E) && canPickUp) {
+            PickUp();
+        }
+
+        if(Input.GetKeyDown(KeyCode.Q) && heldGun != null) {
+            Drop();
+        }
+
         // if() {
         //     heldGun.bulletSpeed += 50;
         // }
@@ -29,20 +40,49 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter(Collider other) {
         if(other.CompareTag("Gun")) {
-            if(heldGun == null) {
-                try {
-                    heldGun = other.GetComponent<Gun>();
-                    heldGun.transform.SetParent(hand);
-                    heldGun.transform.position = hand.position;
-                    heldGun.transform.rotation = hand.rotation;
-                    heldGun.GetComponent<Rigidbody>().isKinematic = true;
-                }
-                catch {
-                    // do nothing.
-                }
-            }
-        } else if(other.CompareTag("Enemy")) {
+            try {
+                lastTouchedGun = other.GetComponent<Gun>();
+                canPickUp = true;
+            } catch {}
+            
+        } 
+        else if(other.CompareTag("Enemy")) {
             health.ChangeHealth();
         }
+    }
+
+    void OnTriggerExit(Collider other) {
+        if(other.CompareTag("Gun")) {
+            if(lastTouchedGun != null) {
+                lastTouchedGun = null;
+            }
+            canPickUp = false;
+        }
+    }
+
+    void PickUp() {
+        if(heldGun == null) {
+            try {
+                heldGun = lastTouchedGun;
+                heldGun.transform.SetParent(hand);
+                heldGun.transform.position = hand.position;
+                heldGun.transform.rotation = hand.rotation;
+                Destroy(heldGun.GetComponent<Rigidbody>());
+
+                lastTouchedGun = null;
+            }
+            catch {
+                // do nothing.
+            }
+        }
+    }
+
+    void Drop() {
+        heldGun.transform.Translate(Vector3.back * 2);                      // move the gun away from player's trigger
+        Rigidbody gunRB = heldGun.gameObject.AddComponent<Rigidbody>();     // make it fall
+        gunRB.AddRelativeForce(Vector3.back * 10, ForceMode.Impulse);
+
+        heldGun.transform.SetParent(null);                                  // stop following player
+        heldGun = null;                                                     // player has no gun.
     }
 }

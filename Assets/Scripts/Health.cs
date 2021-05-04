@@ -53,7 +53,6 @@ public class Health : MonoBehaviour
                     Destroy(GetComponent<MoveTo>());
                     Destroy(GetComponent<StopAndShoot>());      // stops shooting, still looks, somewhat.
                     Destroy(GetComponent<NavMeshAgent>());
-                    Debug.LogError("Pausing to look at the dying enemy.");
                 }
                 catch { // catch(NullReference ex)
                     // do nothing.

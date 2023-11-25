@@ -6,8 +6,14 @@ public class LookAtPlayer : MonoBehaviour
 {
     public Transform target;
 
+    void Start() {
+        if(!target) {
+            target = GameObject.Find("Player").transform;
+        }
+    }
+
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         transform.LookAt(target);
         Vector3 rot = transform.rotation.eulerAngles;

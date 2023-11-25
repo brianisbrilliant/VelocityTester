@@ -149,6 +149,15 @@ MonoBehaviour:
   deathDuration: 4
   damageType: 0
   isPlayer: 0
+  text: {fileID: 1313413195203759961}
+  textColors:
+  - serializedVersion: 2
+    rgba: 4280690431
+  - serializedVersion: 2
+    rgba: 4280738559
+  - serializedVersion: 2
+    rgba: 4280745921
+  textColorDuration: 0.25
 --- !u!114 &5031754613103564875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,7 +208,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.75}
+  m_AnchoredPosition: {x: 0, y: 1}
   m_SizeDelta: {x: 0.5, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8213397621694802763
@@ -291,8 +300,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 4
-  m_fontSizeBase: 4
+  m_fontSize: 8
+  m_fontSizeBase: 8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -307,7 +316,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}

@@ -8,7 +8,7 @@ public class LookAtPlayer : MonoBehaviour
 
     void Start() {
         if(!target) {
-            target = GameObject.Find("Player").transform;
+            target = GameObject.Find("FPSController").transform;
         }
     }
 

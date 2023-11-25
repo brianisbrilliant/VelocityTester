@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Gun : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class Gun : MonoBehaviour
 
     [SerializeField]
     private Vector2 ammoRange = new Vector2(10,20);
-    private int ammo = 10;
+    private int ammo = 0;
 
     [SerializeField]
     private bool final = true;
@@ -31,6 +32,9 @@ public class Gun : MonoBehaviour
     private int spawnIndex = 0;
 
     private bool canFire = true;
+
+    [SerializeField]
+    private TextMeshPro ammoText;
     
 
     // Start is called before the first frame update
@@ -45,8 +49,10 @@ public class Gun : MonoBehaviour
         if(bulletSpawn.Length > 1) {
             multipleSpawnPoints = true;
         }
-
+        
+        UpdateAmmoText();
         ammo = (int)Random.Range(ammoRange.x, ammoRange.y);
+
     }
 
     public void Fire() {
@@ -72,6 +78,9 @@ public class Gun : MonoBehaviour
                 // this.transform.SetParent(null);
                 // this.GetComponent<Rigidbody>().isKinematic = false;
             }
+
+            UpdateAmmoText();
+            
         }
         
     }
@@ -80,5 +89,11 @@ public class Gun : MonoBehaviour
         canFire = false;
         yield return new WaitForSeconds(interval);
         canFire = true;
+    }
+
+    public void UpdateAmmoText(bool dropped = false) {
+        if(!ammoText) return;
+        if(ammo <= 0 || dropped) ammoText.text = "";
+        else ammoText.text = ammo.ToString();
     }
 }

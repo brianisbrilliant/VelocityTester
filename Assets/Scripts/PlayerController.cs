@@ -68,6 +68,7 @@ public class PlayerController : MonoBehaviour
                 heldGun.transform.position = hand.position;
                 heldGun.transform.rotation = hand.rotation;
                 Destroy(heldGun.GetComponent<Rigidbody>());
+                heldGun.UpdateAmmoText();
 
                 lastTouchedGun = null;
             }
@@ -81,6 +82,7 @@ public class PlayerController : MonoBehaviour
         heldGun.transform.Translate(Vector3.back * 2);                      // move the gun away from player's trigger
         Rigidbody gunRB = heldGun.gameObject.AddComponent<Rigidbody>();     // make it fall
         gunRB.AddRelativeForce(Vector3.back * 10, ForceMode.Impulse);
+        heldGun.UpdateAmmoText(true);
 
         heldGun.transform.SetParent(null);                                  // stop following player
         heldGun = null;                                                     // player has no gun.
